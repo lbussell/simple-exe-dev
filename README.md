@@ -21,3 +21,12 @@ Scheduled tasks | systemd
 [exe.dev integrations](https://exe.dev/docs/integrations.md) should be built as
 self-contained as possible so they can be used from a script or from the web
 server.
+
+They live in the `exedev` package, one module per integration, using only the
+standard library:
+
+```python
+from exedev import notify, reflection
+
+notify.send("Done", f"Task finished on {reflection.name()}")
+```
