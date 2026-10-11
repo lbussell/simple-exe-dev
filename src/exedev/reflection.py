@@ -5,8 +5,23 @@ https://exe.dev/docs/integrations-reflection.md
 
 import json
 import urllib.request
+from dataclasses import dataclass
 
 URL = "https://reflection.int.exe.xyz/"
+
+
+@dataclass(frozen=True)
+class Info:
+    name: str
+    emoji: str
+
+
+@dataclass(frozen=True)
+class Integration:
+    name: str
+    type: str
+    comment: str
+    help: str
 
 
 def _get(path: str = "") -> dict:
@@ -14,29 +29,29 @@ def _get(path: str = "") -> dict:
         return json.load(response)
 
 
-def name() -> str:
-    return _get()["name"]
+def get_info() -> Info:
+    index = _get()
+    return Info(index["name"], index["emoji"])
 
 
-def emoji() -> str:
-    return _get()["emoji"]
-
-
-def email() -> str:
+def get_email() -> str:
     return _get("email")["email"]
 
 
-def tags() -> list[str]:
+def get_tags() -> list[str]:
     return _get("tags")["tags"]
 
 
-def comment() -> str:
+def get_comment() -> str:
     return _get("comment")["comment"]
 
 
-def default_port() -> int:
+def get_default_port() -> int:
     return _get("default_port")["default_port"]
 
 
-def integrations() -> list[dict]:
-    return _get("integrations")["integrations"]
+def get_integrations() -> list[Integration]:
+    return [
+        Integration(i["name"], i["type"], i["comment"], i["help"])
+        for i in _get("integrations")["integrations"]
+    ]
