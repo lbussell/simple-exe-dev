@@ -45,5 +45,4 @@ Requires [uv](https://docs.astral.sh/uv/), [npm](https://www.npmjs.com/) and
 just run
 ```
 
-This installs dependencies, then serves the app on port 8000 (or
-`just run <port>`), rebuilding styles and reloading the browser on change.
+This installs dependencies, then serves the app in dev mode.

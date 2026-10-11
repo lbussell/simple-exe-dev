@@ -8,7 +8,7 @@ install:
     npm install
 
 # Run the dev server, rebuilding styles and reloading the browser on change
-run port="8000": install
+run port="8001": install
     #!/usr/bin/env bash
     trap 'kill 0' EXIT
     npm run watch &
