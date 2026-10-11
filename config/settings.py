@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'simple_exe_dev',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
