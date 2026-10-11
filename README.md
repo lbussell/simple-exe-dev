@@ -28,5 +28,5 @@ standard library:
 ```python
 from exedev import notify, reflection
 
-notify.send("Done", f"Task finished on {reflection.name()}")
+notify.send("Done", f"Task finished on {reflection.get_info().name}")
 ```
