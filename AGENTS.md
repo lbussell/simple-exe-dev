@@ -1,6 +1,8 @@
 # Project Guidelines
 
-Work on the branch you started on.
+Work on the branch you started on. Only commit when the user says to. Otherwise, don't mention it.
+Leave the development server running to allow the user to inspect the changes.
+Always provide a link to the dev server.
 
 ## Environment
 
