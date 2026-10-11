@@ -7,7 +7,9 @@ authors = [
     { name = "Logan Bussell", email = "github@loganbussell.com" }
 ]
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "django>=6.1.2",
+]
 
 [project.scripts]
 simple-exe-dev = "simple_exe_dev:main"
