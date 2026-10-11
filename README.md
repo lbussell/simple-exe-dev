@@ -36,6 +36,13 @@ notify.send("Done", f"Task finished on {reflection.get_info().name}")
 Styles use [Tailwind CSS](https://tailwindcss.com). The source is
 `src/simple_exe_dev/styles/input.css`; the built file is not committed.
 
+Icons are [Lucide](https://lucide.dev/icons/), via the
+[Iconify Tailwind plugin](https://iconify.design/docs/usage/css/tailwind/tailwind4/):
+
+```html
+<span class="icon-[lucide--bell]"></span>
+```
+
 ## Running
 
 Requires [uv](https://docs.astral.sh/uv/), [npm](https://www.npmjs.com/) and
