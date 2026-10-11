@@ -19,3 +19,9 @@ staticfiles/
 
 # macOS
 .DS_Store
+
+# Node
+node_modules/
+
+# Tailwind build output
+src/simple_exe_dev/static/simple_exe_dev/main.css

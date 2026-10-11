@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "tailwindcss -i ./src/simple_exe_dev/styles/input.css -o ./src/simple_exe_dev/static/simple_exe_dev/main.css --minify",
+    "watch": "tailwindcss -i ./src/simple_exe_dev/styles/input.css -o ./src/simple_exe_dev/static/simple_exe_dev/main.css --watch=always"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "tailwindcss": "^4.3.3"
+  }
+}

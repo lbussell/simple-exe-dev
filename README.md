@@ -30,3 +30,20 @@ from exedev import notify, reflection
 
 notify.send("Done", f"Task finished on {reflection.get_info().name}")
 ```
+
+## CSS
+
+Styles use [Tailwind CSS](https://tailwindcss.com). The source is
+`src/simple_exe_dev/styles/input.css`; the built file is not committed.
+
+## Running
+
+Requires [uv](https://docs.astral.sh/uv/), [npm](https://www.npmjs.com/) and
+[just](https://just.systems/).
+
+```sh
+just run
+```
+
+This installs dependencies, then serves the app on port 8000 (or
+`just run <port>`), rebuilding styles and reloading the browser on change.
