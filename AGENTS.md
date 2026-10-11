@@ -1,7 +1,6 @@
 # Project Guidelines
 
 Work on the branch you started on.
-There is no pull request process.
 
 ## Environment
 
@@ -23,3 +22,7 @@ Good code has the following characteristics:
 - **Predictable**: in its behaviour, observability, runtime characteristics, failure modes; also in what happens when you change it
 - **Idiomatic**: uses patterns and idioms familiar to a developer experienced in this technology
 - **Domain-based**: intention-revealing in naming, behaviour, and code structure
+
+## User Preferences
+
+I have the memory and attention span of a small insect. Treat me as such.
