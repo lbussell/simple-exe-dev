@@ -3,11 +3,11 @@
 
 @layer base {
   body {
-    @apply leading-relaxed text-stone-900;
+    @apply bg-white leading-relaxed text-stone-900 dark:bg-stone-900 dark:text-stone-100;
   }
 
   h1 {
-    @apply mb-4 border-b border-stone-400 pb-2 text-3xl font-semibold;
+    @apply mb-4 border-b border-stone-400 pb-2 text-3xl font-semibold dark:border-stone-600;
   }
 
   h2 {
@@ -40,11 +40,11 @@
     @apply mt-4 mb-1 flex cursor-pointer items-center gap-1.5 font-semibold;
 
     & > .count {
-      @apply font-normal text-stone-500;
+      @apply font-normal text-stone-500 dark:text-stone-400;
     }
 
     & > .chevron {
-      @apply text-stone-500 transition-transform;
+      @apply text-stone-500 transition-transform dark:text-stone-400;
     }
   }
 
@@ -58,7 +58,7 @@
 
   th,
   td {
-    @apply border-b border-stone-300 px-2 py-1;
+    @apply border-b border-stone-300 px-2 py-1 dark:border-stone-700;
   }
 
   th {
@@ -66,15 +66,16 @@
   }
 
   table a {
-    @apply underline hover:text-stone-950;
+    @apply underline hover:text-stone-950 dark:hover:text-white;
   }
 
   input {
-    @apply ml-1 rounded border border-stone-400 px-2;
+    @apply ml-1 rounded border border-stone-400 px-2 dark:border-stone-600;
   }
 
   button {
     @apply cursor-pointer rounded border border-stone-500 bg-stone-100 px-3 text-stone-900 hover:bg-stone-200;
+    @apply dark:border-stone-500 dark:bg-stone-800 dark:text-stone-100 dark:hover:bg-stone-700;
   }
 }
 
@@ -85,7 +86,7 @@
 
   .sidebar {
     @apply fixed inset-y-0 left-0 z-20 flex w-56 shrink-0 flex-col gap-0.5 pb-2;
-    @apply border-r border-stone-400 bg-stone-100;
+    @apply border-r border-stone-400 bg-stone-100 dark:border-stone-700 dark:bg-stone-950;
     @apply -translate-x-full transition-transform;
     @apply md:sticky md:top-0 md:h-screen md:translate-x-0;
 
@@ -100,6 +101,7 @@
 
   .menu-button {
     @apply flex border-transparent bg-transparent p-1 text-stone-700 hover:bg-stone-100 md:hidden;
+    @apply dark:bg-transparent dark:text-stone-300 dark:hover:bg-stone-800;
   }
 
   .sidebar-header {
@@ -111,11 +113,11 @@
   }
 
   .sidebar-link {
-    @apply flex items-center gap-2.5 px-4 py-1.5 text-stone-700;
-    @apply hover:bg-stone-200/50 hover:text-stone-950;
+    @apply flex items-center gap-2.5 px-4 py-1.5 text-stone-700 dark:text-stone-300;
+    @apply hover:bg-stone-200/50 hover:text-stone-950 dark:hover:bg-stone-800/50 dark:hover:text-white;
 
     &[aria-current="page"] {
-      @apply bg-stone-200 font-semibold text-stone-950;
+      @apply bg-stone-200 font-semibold text-stone-950 dark:bg-stone-800 dark:text-white;
     }
   }
 
@@ -124,23 +126,23 @@
   }
 
   .status-failed {
-    @apply text-red-600;
+    @apply text-red-600 dark:text-red-400;
   }
 
   .status-running {
-    @apply text-green-600;
+    @apply text-green-600 dark:text-green-400;
   }
 
   .status-scheduled {
-    @apply text-sky-600;
+    @apply text-sky-600 dark:text-sky-400;
   }
 
   .muted {
-    @apply text-stone-500;
+    @apply text-stone-500 dark:text-stone-400;
   }
 
   .status-not-running {
-    @apply text-stone-400;
+    @apply text-stone-400 dark:text-stone-500;
   }
 
   .topbar {
@@ -148,10 +150,10 @@
   }
 
   .breadcrumbs {
-    @apply flex items-center gap-1.5 text-stone-800;
+    @apply flex items-center gap-1.5 text-stone-800 dark:text-stone-200;
 
     & a {
-      @apply underline hover:text-stone-950;
+      @apply underline hover:text-stone-950 dark:hover:text-white;
     }
 
     & [aria-current="page"] {
