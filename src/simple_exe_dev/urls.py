@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import index, integrations, notifications, service, services
+from .views import index, integrations, notifications, service, services, settings
 
 urlpatterns = [
     path('', index, name='index'),
@@ -8,4 +8,5 @@ urlpatterns = [
     path('integrations/', integrations, name='integrations'),
     path('services/', services, name='services'),
     path('services/<str:name>/', service, name='service'),
+    path('settings/', settings, name='settings'),
 ]

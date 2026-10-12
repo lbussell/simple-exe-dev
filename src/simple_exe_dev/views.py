@@ -87,3 +87,12 @@ def service(request: HttpRequest, name: str) -> HttpResponse:
     if service is None:
         raise Http404(f'No service named {name}.')
     return render(request, 'simple_exe_dev/service.html', {'service': service})
+
+
+def settings(request: HttpRequest) -> HttpResponse:
+    if request.method == 'POST' and request.user:
+        request.user.display_name = request.POST['display_name'].strip()
+        request.user.save(update_fields=['display_name'])
+        messages.success(request, 'Settings saved.')
+        return redirect('settings')
+    return render(request, 'simple_exe_dev/settings.html')

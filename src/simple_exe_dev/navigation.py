@@ -21,6 +21,7 @@ PAGES = [
     Page('Notifications', 'notifications', 'icon-[lucide--bell]'),
     Page('Integrations', 'integrations', 'icon-[lucide--plug]'),
     Page('Services', 'services', 'icon-[lucide--server]'),
+    Page('Settings', 'settings', 'icon-[lucide--settings]'),
 ]
 
 TITLES = {page.url_name: page.title for page in PAGES}

@@ -1,0 +1,20 @@
+{% extends 'simple_exe_dev/base.html' %}
+
+{% block content %}
+  <h1>Settings</h1>
+  {% if not request.user %}
+    <p class="muted">Sign in through exe.dev to change these.</p>
+  {% endif %}
+  <form method="post">
+    {% csrf_token %}
+    <fieldset {% if not request.user %}disabled{% endif %}>
+      <p>
+        <label>Display name
+          <input name="display_name" value="{{ request.user.display_name }}"
+                 placeholder="{{ request.user.default_name }}" maxlength="100">
+        </label>
+      </p>
+      <button>Save</button>
+    </fieldset>
+  </form>
+{% endblock %}

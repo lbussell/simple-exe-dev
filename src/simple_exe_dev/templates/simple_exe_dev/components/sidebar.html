@@ -6,4 +6,9 @@
       <span class="{{ page.icon }}"></span> {{ page.title }}
     </a>
   {% endfor %}
+  {% if request.user %}
+    <a href="{% url 'settings' %}" class="sidebar-user" title="{{ request.user.email }}">
+      <span class="icon-[lucide--circle-user]"></span> {{ request.user.name }}
+    </a>
+  {% endif %}
 </nav>
