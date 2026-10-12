@@ -1,0 +1,15 @@
+<header class="topbar">
+  <button class="menu-button" @click="sidebarOpen = true" aria-label="Open menu">
+    <span class="icon-[lucide--menu]"></span>
+  </button>
+  <nav class="breadcrumbs">
+    {% for crumb in breadcrumbs %}
+      {% if not forloop.first %}<span class="icon-[lucide--chevron-right]"></span>{% endif %}
+      {% if forloop.last %}
+        <span aria-current="page">{{ crumb.title }}</span>
+      {% else %}
+        <a href="{{ crumb.url }}">{{ crumb.title }}</a>
+      {% endif %}
+    {% endfor %}
+  </nav>
+</header>

@@ -9,5 +9,8 @@
     "@iconify/tailwind4": "^1.2.3",
     "@tailwindcss/cli": "^4.3.3",
     "tailwindcss": "^4.3.3"
+  },
+  "dependencies": {
+    "alpinejs": "^3.17.4"
   }
 }

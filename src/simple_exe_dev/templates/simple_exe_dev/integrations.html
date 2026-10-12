@@ -1,0 +1,12 @@
+{% extends 'simple_exe_dev/base.html' %}
+
+{% block content %}
+  <h1>Integrations</h1>
+  <ul>
+    {% for integration in integrations %}
+      <li><strong>{{ integration.name }}</strong> ({{ integration.type }})</li>
+    {% empty %}
+      <li>None attached.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

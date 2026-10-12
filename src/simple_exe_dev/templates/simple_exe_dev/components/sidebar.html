@@ -1,0 +1,9 @@
+<nav class="sidebar" :class="{ open: sidebarOpen }">
+  <a href="{% url 'index' %}" class="sidebar-header">{{ vm.emoji }} <span class="name">{{ vm.name }}</span></a>
+  {% for page in pages %}
+    <a href="{% url page.url_name %}" class="sidebar-link"
+       {% if page.url_name == current_page %}aria-current="page"{% endif %}>
+      <span class="{{ page.icon }}"></span> {{ page.title }}
+    </a>
+  {% endfor %}
+</nav>

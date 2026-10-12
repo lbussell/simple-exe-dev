@@ -1,0 +1,25 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% with page=breadcrumbs|last %}<title>{{ page.title }} · Simple exe.dev</title>{% endwith %}
+    <link rel="stylesheet" href="{% static 'simple_exe_dev/main.css' %}">
+    <script defer src="{% static 'alpinejs/cdn.min.js' %}"></script>
+  </head>
+  <body class="flex min-h-screen"
+        x-data="{ sidebarOpen: false }" @keydown.escape.window="sidebarOpen = false">
+    {% include 'simple_exe_dev/components/sidebar.html' %}
+    <div class="backdrop" x-show="sidebarOpen" x-cloak @click="sidebarOpen = false"></div>
+    <div class="min-w-0 flex-1">
+      {% include 'simple_exe_dev/components/topbar.html' %}
+      <main class="max-w-3xl px-6 py-3">
+        {% for message in messages %}
+          <p>{{ message }}</p>
+        {% endfor %}
+        {% block content %}{% endblock %}
+      </main>
+    </div>
+  </body>
+</html>

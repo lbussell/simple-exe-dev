@@ -67,6 +67,7 @@ TEMPLATES = [
             'context_processors': [
                 'django.template.context_processors.request',
                 'django.contrib.messages.context_processors.messages',
+                'simple_exe_dev.navigation.navigation',
             ],
         },
     },
@@ -102,6 +103,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.1/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [
+    ('alpinejs', BASE_DIR / 'node_modules/alpinejs/dist'),
+]
 
 
 # Email

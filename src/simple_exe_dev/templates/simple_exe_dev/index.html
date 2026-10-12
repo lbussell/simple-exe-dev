@@ -1,44 +1,15 @@
-{% load static %}
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Simple exe.dev</title>
-    <link rel="stylesheet" href="{% static 'simple_exe_dev/main.css' %}">
-  </head>
-  <body>
-    <h1>Simple exe.dev</h1>
-    <p>{{ info.emoji }} {{ info.name }}</p>
+{% extends 'simple_exe_dev/base.html' %}
 
-    <h2>Reflection</h2>
-    <dl>
-      <dt>Owner</dt>
-      <dd>{{ email }}</dd>
-      <dt>Tags</dt>
-      <dd>{{ tags|join:", "|default:"None" }}</dd>
-      <dt>Comment</dt>
-      <dd>{{ comment|default:"None" }}</dd>
-      <dt>Default port</dt>
-      <dd>{{ default_port }}</dd>
-    </dl>
-
-    <h3>Attached integrations</h3>
-    <ul>
-      {% for integration in integrations %}
-        <li><strong>{{ integration.name }}</strong> ({{ integration.type }})</li>
-      {% endfor %}
-    </ul>
-
-    <h2><span class="icon-[lucide--bell] align-middle"></span> Notify</h2>
-    {% for message in messages %}
-      <p>{{ message }}</p>
-    {% endfor %}
-    <form method="post" action="{% url 'send_notification' %}">
-      {% csrf_token %}
-      <p><label>Title <input name="title" required></label></p>
-      <p><label>Body <input name="body" required></label></p>
-      <button>Send</button>
-    </form>
-  </body>
-</html>
+{% block content %}
+  <h1>{{ info.emoji }} {{ info.name }}</h1>
+  <dl>
+    <dt>Owner</dt>
+    <dd>{{ email }}</dd>
+    <dt>Tags</dt>
+    <dd>{{ tags|join:", "|default:"None" }}</dd>
+    <dt>Comment</dt>
+    <dd>{{ comment|default:"None" }}</dd>
+    <dt>Default port</dt>
+    <dd>{{ default_port }}</dd>
+  </dl>
+{% endblock %}
