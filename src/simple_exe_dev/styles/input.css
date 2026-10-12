@@ -36,6 +36,39 @@
     @apply font-semibold;
   }
 
+  summary {
+    @apply mt-4 mb-1 flex cursor-pointer items-center gap-1.5 font-semibold;
+
+    & > .count {
+      @apply font-normal text-stone-500;
+    }
+
+    & > .chevron {
+      @apply text-stone-500 transition-transform;
+    }
+  }
+
+  details[open] > summary > .chevron {
+    @apply rotate-90;
+  }
+
+  table {
+    @apply mb-4 w-full text-left;
+  }
+
+  th,
+  td {
+    @apply border-b border-stone-300 px-2 py-1;
+  }
+
+  th {
+    @apply font-semibold whitespace-nowrap;
+  }
+
+  table a {
+    @apply underline hover:text-stone-950;
+  }
+
   input {
     @apply ml-1 rounded border border-stone-400 px-2;
   }
@@ -84,6 +117,30 @@
     &[aria-current="page"] {
       @apply bg-stone-200 font-semibold text-stone-950;
     }
+  }
+
+  .status-dot {
+    @apply mr-1 inline-block size-2.5 rounded-full bg-current;
+  }
+
+  .status-failed {
+    @apply text-red-600;
+  }
+
+  .status-running {
+    @apply text-green-600;
+  }
+
+  .status-scheduled {
+    @apply text-sky-600;
+  }
+
+  .muted {
+    @apply text-stone-500;
+  }
+
+  .status-not-running {
+    @apply text-stone-400;
   }
 
   .topbar {

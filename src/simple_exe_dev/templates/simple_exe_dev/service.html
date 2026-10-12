@@ -1,0 +1,46 @@
+{% extends 'simple_exe_dev/base.html' %}
+{% load relative_time %}
+
+{% block content %}
+  <h1>{{ service.name }}</h1>
+  <p>{{ service.description }}</p>
+  <dl>
+    <dt>Status</dt>
+    <dd>
+      <span class="status-dot status-{{ service.status.value }}"></span>
+      {{ service.status.label }}
+      {% if service.since %}
+        <span class="muted">
+          · {% if service.status.value == 'running' %}started{% else %}failed{% endif %}
+          <time datetime="{{ service.since|date:'c' }}" title="{{ service.since }}">{{ service.since|relative }}</time>
+        </span>
+      {% endif %}
+    </dd>
+    {% if service.schedule %}
+      <dt>Next run</dt>
+      <dd>
+        <time datetime="{{ service.schedule.next_run|date:'c' }}" title="{{ service.schedule.next_run }}">{{ service.schedule.next_run|relative }}</time>
+      </dd>
+      <dt>Last run</dt>
+      <dd>
+        {% if service.schedule.last_run %}
+          <time datetime="{{ service.schedule.last_run|date:'c' }}" title="{{ service.schedule.last_run }}">{{ service.schedule.last_run|relative }}</time>
+        {% else %}
+          Never
+        {% endif %}
+      </dd>
+    {% endif %}
+    {% if service.starts_at_boot is not None %}
+      <dt>Starts at boot</dt>
+      <dd>{{ service.starts_at_boot|yesno:"Yes,No" }}</dd>
+    {% endif %}
+    {% if service.pid %}
+      <dt>Process ID</dt>
+      <dd>{{ service.pid }}</dd>
+    {% endif %}
+    {% if service.unit_file %}
+      <dt>Unit file</dt>
+      <dd><code>{{ service.unit_file }}</code></dd>
+    {% endif %}
+  </dl>
+{% endblock %}

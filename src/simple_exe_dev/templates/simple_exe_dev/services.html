@@ -1,0 +1,50 @@
+{% extends 'simple_exe_dev/base.html' %}
+{% load relative_time %}
+
+{% block content %}
+  <h1>Services</h1>
+  {% for group in groups %}
+    <details {% if group.open %}open{% endif %}>
+      <summary>
+        <span class="icon-[lucide--chevron-right] chevron"></span>
+        {{ group.status.label }} <span class="count">{{ group.services|length }}</span>
+      </summary>
+      {% if group.services %}
+        <div class="overflow-x-auto">
+          <table>
+            <thead>
+              <tr>
+                {% for column in columns %}
+                  <th>
+                    <a href="?sort={{ column.next_sort }}">{{ column.title }}</a>
+                    {% if column.direction == 'asc' %}<span class="icon-[lucide--arrow-up]"></span>{% endif %}
+                    {% if column.direction == 'desc' %}<span class="icon-[lucide--arrow-down]"></span>{% endif %}
+                  </th>
+                {% endfor %}
+                {% if group.status.value == 'scheduled' %}<th>Next run</th>{% endif %}
+              </tr>
+            </thead>
+            <tbody>
+              {% for service in group.services %}
+                <tr>
+                  <td class="whitespace-nowrap">
+                    <span class="status-dot status-{{ service.status.value }}"></span>
+                    <a href="{% url 'service' service.name %}">{{ service.name }}</a>
+                  </td>
+                  <td>{{ service.description }}</td>
+                  {% if group.status.value == 'scheduled' %}
+                    <td class="whitespace-nowrap">
+                      <time datetime="{{ service.schedule.next_run|date:'c' }}" title="{{ service.schedule.next_run }}">{{ service.schedule.next_run|relative }}</time>
+                    </td>
+                  {% endif %}
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      {% else %}
+        <p>None.</p>
+      {% endif %}
+    </details>
+  {% endfor %}
+{% endblock %}
